@@ -1,0 +1,11 @@
+---
+language: ruby
+rvm:
+  - 2.4
+cache: bundler
+
+script:
+  - bundle exec rspec
+
+notifications:
+  email: false
