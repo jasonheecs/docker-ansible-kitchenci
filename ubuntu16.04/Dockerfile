@@ -15,7 +15,6 @@ RUN echo 'deb http://ppa.launchpad.net/ansible/ansible/ubuntu xenial main' | tee
         ruby \
         ruby-minitest \
         ruby-test-unit \
-        ruby \
         rubygems-integration \
         unzip \
         zip && \

@@ -16,7 +16,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -my wget gn
         ruby \
         ruby-minitest \
         ruby-test-unit \
-        ruby \
         rubygems-integration \
         unzip \
         zip && \

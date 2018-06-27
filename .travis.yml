@@ -1,11 +1,23 @@
 ---
+sudo: required
+services:
+  - docker
+
 language: ruby
 rvm:
   - 2.4
 cache: bundler
 
+env:
+  - TEST_FILE: ubuntu_bionic_spec.rb
+  - TEST_FILE: ubuntu_xenial_spec.rb
+  - TEST_FILE: ubuntu_trusty_spec.rb
+
+before_install:
+  - wget https://github.com/docker-slim/docker-slim/releases/download/1.20/dist_linux.tar.gz; tar -xzf dist_linux.tar.gz
+
 script:
-  - bundle exec rspec
+  - bundle exec rspec spec/${TEST_FILE}
 
 notifications:
   email: false
