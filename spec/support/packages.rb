@@ -7,7 +7,6 @@ shared_examples "packages" do
     'libruby',
     'rake',
     'ruby',
-    'ruby',
     'rubygems-integration',
     'unzip',
     'zip'
