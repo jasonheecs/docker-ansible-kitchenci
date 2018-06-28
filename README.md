@@ -1,8 +1,8 @@
 # Docker Ansible and Kitchen CI Images
 
-[![Build Status][travis-badge]][travis-link]
+[![Build Status][travis-badge]][travis-link] [![Docker Automated Build Status][docker-build-badge]][docker-hub-link]
 
-A set of Docker images with Ansible and Kitchen CI dependencies installed, meant for easier creation and testing of Ansible playbooks with Kitchen CI.
+A set of Docker images with Ansible and Kitchen CI dependencies installed, meant for easier creation and testing of Ansible playbooks with Kitchen CI. [Docker Hub link][docker-hub-link]
 
 ## Usage
 To use the docker images in Kitchen CI, simply specify the image name with the relevant tag in your `.kitchen.yml` file:
@@ -74,7 +74,8 @@ To run Rspec tests:
 ```bash
 gem install bundler
 bundle install
-bundle exec rspec spec/<name-of-spec-file> #e.g: bundle exec rspec spec/ubuntu_bionic_spec.rb
+bundle exec rspec spec/<name-of-spec-file>
+#e.g: bundle exec rspec spec/ubuntu_bionic_spec.rb
 ```
 
 To run linting tests on the Dockerfiles, make sure Node and npm are installed and:
@@ -87,5 +88,7 @@ Refer to the [travis.yml](.travis.yml) file and [Travis build logs][travis-link]
 ## License
 MIT
 
+[docker-build-badge]: https://img.shields.io/docker/build/jasonheecs/ansible.svg
+[docker-hub-link]: https://hub.docker.com/r/jasonheecs/ansible/
 [travis-badge]: https://travis-ci.com/jasonheecs/docker-ansible-kitchenci.svg?branch=master
 [travis-link]: https://travis-ci.com/jasonheecs/docker-ansible-kitchenci
