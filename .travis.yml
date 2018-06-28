@@ -14,6 +14,7 @@ env:
   - TEST_FILE: ubuntu_trusty_spec.rb
   - TEST_FILE: centos7_spec.rb
   - TEST_FILE: debian_jessie_spec.rb
+  - TEST_FILE: debian_stretch_spec.rb
 
 before_install:
   - wget https://github.com/docker-slim/docker-slim/releases/download/1.20/dist_linux.tar.gz; tar -xzf dist_linux.tar.gz
