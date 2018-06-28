@@ -1,5 +1,7 @@
 FROM ubuntu:14.04
 
+LABEL name="jasonheecs/ansible:ubuntu-14.04"
+LABEL version="1.0.0"
 LABEL maintainer="hello@jasonhee.com"
 
 RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" | tee /etc/apt/sources.list.d/ansible.list           && \
@@ -19,6 +21,7 @@ RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" | tee
         unzip \
         zip && \
     rm -rf /var/lib/apt/lists/*  /etc/apt/sources.list.d/ansible.list && \
-    gem install bundler
+    gem install bundler && \
+    gem cleanup all
 
 CMD [ "ansible-playbook", "--version" ]

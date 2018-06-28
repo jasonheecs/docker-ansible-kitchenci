@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 
+LABEL name="jasonheecs/ansible:ubuntu-16.04"
+LABEL version="1.0.0"
 LABEL maintainer="hello@jasonhee.com"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -my wget gnupg && \
@@ -20,7 +22,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -my wget gn
         unzip \
         zip && \
     rm -rf /var/lib/apt/lists/*  /etc/apt/sources.list.d/ansible.list && \
-    gem install bundler
+    gem install bundler && \
+    gem cleanup all
 
 RUN mkdir -p /run/sshd
 

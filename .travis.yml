@@ -17,10 +17,15 @@ env:
   - TEST_FILE: debian_stretch_spec.rb
 
 before_install:
-  - wget https://github.com/docker-slim/docker-slim/releases/download/1.20/dist_linux.tar.gz; tar -xzf dist_linux.tar.gz
+  - nvm install 8.3.0
+  - npm install
+  - npm test
 
 script:
   - bundle exec rspec spec/${TEST_FILE}
+
+after_success:
+  - docker images
 
 notifications:
   email: false

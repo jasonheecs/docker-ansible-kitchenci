@@ -1,5 +1,9 @@
 FROM centos:7
 
+LABEL name="jasonheecs/ansible:centos-7"
+LABEL version="1.0.0"
+LABEL maintainer="hello@jasonhee.com"
+
 ENV container docker
 
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
@@ -20,7 +24,8 @@ RUN yum install -y \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers  || true && \
     yum -y remove epel-release && \
     yum clean all && \
-    gem install bundler
+    gem install bundler && \
+    gem cleanup all
 
 VOLUME [ "/sys/fs/cgroup" ]
 

@@ -1,0 +1,25 @@
+{
+  "name": "docker-ansible-kitchenci",
+  "version": "1.0.0",
+  "description": "Docker images with Ansible and Kitchen CI, installed in Debian, Ubuntu and CentOS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node dockerfilelint.js",
+    "precommit": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonheecs/docker-ansible-kitchenci.git"
+  },
+  "author": "jasonheecs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasonheecs/docker-ansible-kitchenci/issues"
+  },
+  "homepage": "https://github.com/jasonheecs/docker-ansible-kitchenci#readme",
+  "devDependencies": {
+    "dockerfile_lint": "^0.3.2",
+    "husky": "^0.14.3",
+    "npm-run": "^5.0.1"
+  }
+}
