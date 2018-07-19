@@ -68,7 +68,7 @@ List of tags and their distros:
 - jasonheecs/ansible:debian-8
 
 ## Testing
-Testing is done via Rspec and Dockerfile-lint. 
+Testing is done via Rspec and [Hadolint](https://github.com/hadolint/hadolint). 
 
 To run Rspec tests:
 ```bash
@@ -78,9 +78,9 @@ bundle exec rspec spec/<name-of-spec-file>
 #e.g: bundle exec rspec spec/ubuntu_bionic_spec.rb
 ```
 
-To run linting tests on the Dockerfiles, make sure Node and npm are installed and:
+To run linting tests on the Dockerfiles, make sure Hadolint installed and:
 ```bash
-npm run test
+hadolint ./ubuntu18.04/Dockerfile
 ```
 
 Refer to the [travis.yml](.travis.yml) file and [Travis build logs][travis-link] for details on the automated tests and expected outputs.

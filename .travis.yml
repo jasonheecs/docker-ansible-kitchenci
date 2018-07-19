@@ -9,20 +9,19 @@ rvm:
 cache: bundler
 
 env:
-  - TEST_FILE: ubuntu_bionic_spec.rb
-  - TEST_FILE: ubuntu_xenial_spec.rb
-  - TEST_FILE: ubuntu_trusty_spec.rb
-  - TEST_FILE: centos7_spec.rb
-  - TEST_FILE: debian_jessie_spec.rb
-  - TEST_FILE: debian_stretch_spec.rb
+  - SUITE: ubuntu18.04
+  - SUITE: ubuntu16.04
+  - SUITE: ubuntu14.04
+  - SUITE: centos7
+  - SUITE: debian8
+  - SUITE: debian9
 
 before_install:
-  - nvm install 8.3.0
-  - npm install
+  - docker pull hadolint/hadolint
 
 script:
-  - npm test
-  - bundle exec rspec spec/${TEST_FILE}
+  - docker run -i hadolint/hadolint hadolint --ignore DL3008 - < "${SUITE}"/Dockerfile
+  - bundle exec rspec spec/"${SUITE}"_spec.rb
 
 after_success:
   - docker images

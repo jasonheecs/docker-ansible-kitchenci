@@ -6,8 +6,10 @@ LABEL maintainer="hello@jasonhee.com"
 
 ENV container docker
 
-RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
-    systemd-tmpfiles-setup.service ] || rm -f $i; done); \
+WORKDIR /lib/systemd/system/sysinit.target.wants/
+
+RUN (for i in *; do [ "${i}" = \
+    systemd-tmpfiles-setup.service ] || rm -f "${i}"; done); \
     rm -f /lib/systemd/system/multi-user.target.wants/*;\
     rm -f /etc/systemd/system/*.wants/*;\
     rm -f /lib/systemd/system/local-fs.target.wants/*; \
