@@ -1,7 +1,7 @@
 FROM centos:7
 
 LABEL name="jasonheecs/ansible:centos-7"
-LABEL version="1.0.0"
+LABEL version="1.0.1"
 LABEL maintainer="hello@jasonhee.com"
 
 ENV container docker
@@ -26,7 +26,7 @@ RUN yum install -y \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers  || true && \
     yum -y remove epel-release && \
     yum clean all && \
-    gem install bundler && \
+    gem install bundler:1.9.3 && \
     gem cleanup all
 
 VOLUME [ "/sys/fs/cgroup" ]

@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 LABEL name="jasonheecs/ansible:ubuntu-16.04"
-LABEL version="1.0.0"
+LABEL version="1.0.1"
 LABEL maintainer="hello@jasonhee.com"
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -24,7 +24,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -my --no-in
         unzip \
         zip && \
     rm -rf /var/lib/apt/lists/*  /etc/apt/sources.list.d/ansible.list && \
-    gem install bundler && \
+    gem install bundler -v 2.1.4 && \
     gem cleanup all
 
 RUN mkdir -p /run/sshd

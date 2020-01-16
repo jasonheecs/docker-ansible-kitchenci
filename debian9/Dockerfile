@@ -25,7 +25,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -my wget gn
         unzip \
         zip && \
     rm -rf /var/lib/apt/lists/*  /etc/apt/sources.list.d/ansible.list && \
-    gem install bundler && \
+    gem install bundler:2.1.4 && \
     gem cleanup all
 
 CMD [ "ansible-playbook", "--version" ]
